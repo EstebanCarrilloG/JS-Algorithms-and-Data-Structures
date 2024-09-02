@@ -1,0 +1,76 @@
+:root {
+  --light-grey: #f5f6f7;
+  --dark-blue: #0a0a23;
+  --fcc-blue: #1b1b32;
+  --light-yellow: #fecc4c;
+  --dark-yellow: #feac32;
+  --light-pink: #ffadad;
+  --dark-red: #850000;
+  --light-green: #acd157;
+}
+
+body {
+    font-family: monospace;
+  background-color: #0a0a23;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap : 20px;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+  font-size: 2.5rem;
+}
+
+form {
+  background-color: #1b1b32;
+  color: white;
+  padding: 20px;
+}
+
+fieldset {
+  border: none;
+  display: flex;
+  flex-direction: column;
+}
+label {
+  font-weight: bold;
+  text-align: center;
+  font-size: 1.5rem;
+}
+input {
+    margin: 0 auto;
+  width: 90%;
+  margin-bottom: 10px;
+  height: 30px;
+  text-align: center;
+  font-size: 30px;
+}
+
+button {
+margin: 1rem auto 0rem auto;
+max-width: 300px;
+  background-color: var(--dark-yellow);
+  color: black;
+  padding: 10px;
+
+  border: none;
+  font-weight: bold;    
+  font-size: 1.5rem;
+}
+.output{
+    color: white;
+    font-size: 1.5rem;
+    padding: 1rem 2rem ;   
+    background-color: var(--fcc-blue);
+    text-align: center;
+}
+
+.error{
+    color: red;
+    background-color: #f5f6f7;
+}
