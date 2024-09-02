@@ -12,9 +12,9 @@ function reverseString(text){
   });
 
   if(textCleaned.join("") === textCleaned.reverse().join("")){
-    result.innerText = text.toLowerCase() + " is a palindrome.";
+    result.innerHTML = `<strong>${text.toLowerCase()}</strong> is a palindrome.`;
   }else{
-    result.innerText = text.toLowerCase() + " is not a palindrome";
+    result.innerHTML = `<strong>${text.toLowerCase()}</strong> is not a palindrome.`;
   }
 }
 
