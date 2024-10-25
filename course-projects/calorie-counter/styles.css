@@ -30,6 +30,12 @@
   .output {
     margin: 20px auto;
   }
+  main {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+
+  }
   
   label,
   legend {

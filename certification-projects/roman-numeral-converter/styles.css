@@ -10,14 +10,16 @@
 }
 
 body {
-    font-family: monospace;
-  background-color: #0a0a23;
+  font-family: monospace;
+  background-color: var(--fcc-blue);
 }
-main{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap : 20px;
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  min-height: 100vh;
+  justify-content: center;
 }
 
 h1 {
@@ -27,7 +29,7 @@ h1 {
 }
 
 form {
-  background-color: #1b1b32;
+  background-color: var(--dark-blue);
   color: white;
   padding: 20px;
 }
@@ -43,7 +45,7 @@ label {
   font-size: 1.5rem;
 }
 input {
-    margin: 0 auto;
+  margin: 0 auto;
   width: 90%;
   margin-bottom: 10px;
   height: 30px;
@@ -52,25 +54,25 @@ input {
 }
 
 button {
-margin: 1rem auto 0rem auto;
-max-width: 300px;
+  margin: 1rem auto 0rem auto;
+  max-width: 300px;
   background-color: var(--dark-yellow);
   color: black;
   padding: 10px;
 
   border: none;
-  font-weight: bold;    
+  font-weight: bold;
   font-size: 1.5rem;
 }
-.output{
-    color: white;
-    font-size: 1.5rem;
-    padding: 1rem 2rem ;   
-    background-color: var(--fcc-blue);
-    text-align: center;
+.output {
+  color: white;
+  font-size: 1.5rem;
+  padding: 1rem 2rem;
+  background-color: var(--fcc-blue);
+  text-align: center;
 }
 
-.error{
-    color: red;
-    background-color: #f5f6f7;
+.error {
+  color: red;
+  background-color: #f5f6f7;
 }

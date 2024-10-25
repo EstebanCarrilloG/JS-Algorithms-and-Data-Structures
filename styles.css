@@ -1,0 +1,79 @@
+:root {
+  --light-grey: #f5f6f7;
+  --dark-blue: #0a0a23;
+  --fcc-blue: #1b1b32;
+  --light-yellow: #fecc4c;
+  --dark-yellow: #feac32;
+  --light-pink: #ffadad;
+  --dark-red: #850000;
+  --light-green: #acd157;
+  --primary-font: sans-serif;
+  --secondary-font: monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ul li {
+  list-style: none;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1024px;
+  width: 95%;
+  margin: auto;
+}
+header {
+  background: var(--dark-blue);
+  color: white;
+}
+
+.header-container h1 {
+  text-align: center;
+  padding: 2rem 1rem;
+  font-family: var(--primary-font);
+}
+
+main {
+  flex-grow: 1;
+  background: var(--fcc-blue);
+}
+
+.section-container {
+  padding: 3rem 1rem;
+}
+.section-container h2 {
+  color: white;
+  text-align: center;
+  margin-bottom: 3rem;
+  font-family: var(--primary-font);
+}
+.section-container ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.section-container ul li a {
+  text-decoration: none;
+  border: 3px solid white;
+  color: white;
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: center;
+  font-family: var(--secondary-font);
+  font-weight: bold;
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.section-container ul li a:hover {
+  box-shadow: 0px 0px 2px 1px white;
+}
