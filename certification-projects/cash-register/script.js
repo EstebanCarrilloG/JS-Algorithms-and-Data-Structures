@@ -1,16 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
-  let price = 1.87;
-  let cid = [
-    ["PENNY", 1.01],
-    ["NICKEL", 2.05],
-    ["DIME", 3.1],
-    ["QUARTER", 4.25],
-    ["ONE", 90],
-    ["FIVE", 55],
-    ["TEN", 20],
-    ["TWENTY", 60],
-    ["ONE HUNDRED", 100],
-  ];
+  let price = 19.5;
+  let cid = [["PENNY", 0.5], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 0], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]];
 
   const cash = document.getElementById("cash");
   const changeDue = document.getElementById("change-due");
@@ -29,13 +19,13 @@ document.addEventListener("DOMContentLoaded", function () {
       })
       .join("");
   }
-  function renderChangeDue(status, change = []) {
+  function renderChangeDue({ status, change }) {
     changeDue.innerHTML = "Status: " + status;
 
     change.length > 0
-      ? (changeDue.innerHTML += `<div>Change Due: ${change
-          ?.map((e) => `<div><b>${e[0]}</b>:${e[1]}</div> `)
-          .join("")}</div>`)
+      ? (changeDue.innerHTML += change
+          ?.map((e) => `<p>${e[0]}: $${e[1]}</p> `)
+          .join(""))
       : "";
   }
 
@@ -55,18 +45,21 @@ document.addEventListener("DOMContentLoaded", function () {
       );
 
       if (unitsToUse > 0) {
-        changeGiven.push([cidCopy[i][0], (unitsToUse / 100).toFixed(2)]);
+        changeGiven.push([cidCopy[i][0], unitsToUse / 100]);
         change -= unitsToUse;
         cid[values.length - i - 1][1] -= unitsToUse / 100;
       }
 
       if (change === 0) break;
-      console.log(changeGiven);
     }
 
     renderCid();
 
-    return changeGiven;
+    if (change > 0) {
+      return { status: "INSUFFICIENT_FUNDS", change: [] };
+    }
+
+    return { status: "OPEN", change: changeGiven };
   }
 
   function validateCash() {
@@ -78,20 +71,22 @@ document.addEventListener("DOMContentLoaded", function () {
     let change = 0;
 
     cid.forEach((e) => (totalCid += Number(e[1]) * 100));
-    console.log("totalCid", totalCid);
 
     change = cashValueInCents - priceValueInCents;
 
     if (cashValueInCents < priceValueInCents) {
       alert("Customer does not have enough money to purchase the item");
-    } else if (cash == price) {
+    } else if (cashValueInCents == priceValueInCents) {
       changeDue.innerText = "No change due - customer paid with exact cash";
     } else {
-      if (totalCid > change) {
-        renderChangeDue("OPEN", handleChangeReturn(change));
-      } else {
-        renderChangeDue("INSUFFICIENT_FUNDS");
-      }
+      if (totalCid == change) {
+        renderChangeDue({ status: "CLOSED", change: handleChangeReturn(change).change });
+      } else if(totalCid > change){
+        renderChangeDue(handleChangeReturn(change));
+        
+      }else{
+        renderChangeDue({status:"INSUFFICIENT_FUNDS", change :[]})
+      }    
     }
   }
 
