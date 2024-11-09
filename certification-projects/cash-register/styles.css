@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background: rgb(60, 60, 60);
+    color: white;
+}
+.main-container{
+    max-width: 1300px;
+    width: 90%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+h1{
+    font-size: 3rem;
+    margin-bottom: 2rem;
+}
+#change-due{
+    background: black;
+    border: 3px solid gray;
+}
+
