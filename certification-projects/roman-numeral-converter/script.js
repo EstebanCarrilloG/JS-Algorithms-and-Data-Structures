@@ -24,7 +24,7 @@ function validateInput(e) {
 }
 
 function convertNumber(number) {
-  const numbers = [
+  const numbers =
     {
       1: "I",
       2: "II",
@@ -44,8 +44,7 @@ function convertNumber(number) {
       500: "D",
       900: "CM",
       1000: "M",
-    },
-  ];
+    };
 
   let miles = ((number % 10000) - (number % 1000)) / 1000;
   let hundreds = ((number % 1000) - (number % 100)) / 100;
@@ -54,139 +53,139 @@ function convertNumber(number) {
 
   console.log(units);
 
-  if (numbers[0][number]) {
-    return numbers[0][number];
+  if (numbers[number]) {
+    return numbers[number];
   }
 
   if (number < 4) {
-    return numbers[0][number];
+    return numbers[number];
   } else if (number < 10) {
-    return numbers[0][5] + numbers[0][units];
+    return numbers[5] + numbers[units];
   } else if (number < 40) {
     return (
-      numbers[0][10].repeat(number / 10) +
-      (units === 0 ? "" : numbers[0][units])
+      numbers[10].repeat(number / 10) +
+      (units === 0 ? "" : numbers[units])
     );
   } else if (number < 50) {
-    return numbers[0][40] + numbers[0][units];
+    return numbers[40] + numbers[units];
   } else if (number < 90) {
     return (
-      numbers[0][50] +
+      numbers[50] +
       (units === 0
-        ? numbers[0][10].repeat(tens - 5)
-        : numbers[0][10].repeat(tens - 5) + numbers[0][units])
+        ? numbers[10].repeat(tens - 5)
+        : numbers[10].repeat(tens - 5) + numbers[units])
     );
   } else if (number < 100) {
-    return numbers[0][90] + numbers[0][units];
+    return numbers[90] + numbers[units];
   } else if (number < 400) {
     return (
-      numbers[0][100].repeat(number / 100) +
+      numbers[100].repeat(number / 100) +
       (units === 0 && tens === 0
         ? ""
         : tens * 10 + units < 10
-        ? numbers[0][units]
+        ? numbers[units]
         : tens * 10 + units < 40
-        ? numbers[0][10].repeat(tens / 1) +
-          (units == 0 ? "" : numbers[0][units])
+        ? numbers[10].repeat(tens / 1) +
+          (units == 0 ? "" : numbers[units])
         : tens * 10 + units < 50
-        ? numbers[0][40] + (units == 0 ? "" : numbers[0][units])
+        ? numbers[40] + (units == 0 ? "" : numbers[units])
         : tens * 10 + units < 90
-        ? numbers[0][50] +
+        ? numbers[50] +
           (units === 0
-            ? numbers[0][10].repeat(tens - 5)
-            : numbers[0][10].repeat(tens - 5) + numbers[0][units])
+            ? numbers[10].repeat(tens - 5)
+            : numbers[10].repeat(tens - 5) + numbers[units])
         : tens * 10 + units < 100
-        ? numbers[0][90] + numbers[0][units]
+        ? numbers[90] + numbers[units]
         : 0)
     );
   } else if (number < 500) {
     return (
-      numbers[0][400] +
+      numbers[400] +
       (tens * 10 + units < 10
-        ? numbers[0][units]
+        ? numbers[units]
         : tens * 10 + units < 40
-        ? numbers[0][10].repeat(tens / 1) +
-          (units == 0 ? "" : numbers[0][units])
+        ? numbers[10].repeat(tens / 1) +
+          (units == 0 ? "" : numbers[units])
         : tens * 10 + units < 50
-        ? numbers[0][40] + (units == 0 ? "" : numbers[0][units])
+        ? numbers[40] + (units == 0 ? "" : numbers[units])
         : tens * 10 + units < 90
-        ? numbers[0][50] +
+        ? numbers[50] +
           (units === 0
-            ? numbers[0][10].repeat(tens - 5)
-            : numbers[0][10].repeat(tens - 5) + numbers[0][units])
+            ? numbers[10].repeat(tens - 5)
+            : numbers[10].repeat(tens - 5) + numbers[units])
         : tens * 10 + units < 100
-        ? numbers[0][90] + numbers[0][units]
+        ? numbers[90] + numbers[units]
         : 0)
     );
   } else if (number < 900) {
     return (
-      numbers[0][500] +
-      numbers[0][100].repeat(hundreds - 5) +
+      numbers[500] +
+      numbers[100].repeat(hundreds - 5) +
       (units === 0 && tens === 0
         ? ""
         : tens * 10 + units < 10
-        ? numbers[0][units]
+        ? numbers[units]
         : tens * 10 + units < 40
-        ? numbers[0][10].repeat(tens / 1) +
-          (units == 0 ? "" : numbers[0][units])
+        ? numbers[10].repeat(tens / 1) +
+          (units == 0 ? "" : numbers[units])
         : tens * 10 + units < 50
-        ? numbers[0][40] + (units == 0 ? "" : numbers[0][units])
+        ? numbers[40] + (units == 0 ? "" : numbers[units])
         : tens * 10 + units < 90
-        ? numbers[0][50] +
+        ? numbers[50] +
           (units === 0
-            ? numbers[0][10].repeat(tens - 5)
-            : numbers[0][10].repeat(tens - 5) + numbers[0][units])
+            ? numbers[10].repeat(tens - 5)
+            : numbers[10].repeat(tens - 5) + numbers[units])
         : tens * 10 + units < 100
-        ? numbers[0][90] + numbers[0][units]
+        ? numbers[90] + numbers[units]
         : 0)
     );
   } else if (number < 1000) {
     return (
-      numbers[0][900] +
+      numbers[900] +
       (tens * 10 + units < 10
-        ? numbers[0][units]
+        ? numbers[units]
         : tens * 10 + units < 40
-        ? numbers[0][10].repeat(tens / 1) +
-          (units == 0 ? "" : numbers[0][units])
+        ? numbers[10].repeat(tens / 1) +
+          (units == 0 ? "" : numbers[units])
         : tens * 10 + units < 50
-        ? numbers[0][40] + (units == 0 ? "" : numbers[0][units])
+        ? numbers[40] + (units == 0 ? "" : numbers[units])
         : tens * 10 + units < 90
-        ? numbers[0][50] +
+        ? numbers[50] +
           (units === 0
-            ? numbers[0][10].repeat(tens - 5)
-            : numbers[0][10].repeat(tens - 5) + numbers[0][units])
+            ? numbers[10].repeat(tens - 5)
+            : numbers[10].repeat(tens - 5) + numbers[units])
         : tens * 10 + units < 100
-        ? numbers[0][90] + numbers[0][units]
+        ? numbers[90] + numbers[units]
         : 0)
     );
   } else if (number < 4000) {
     return (
-      numbers[0][1000].repeat(miles) +
+      numbers[1000].repeat(miles) +
       (hundreds * 100 < 400
-        ? numbers[0][100].repeat(hundreds)
+        ? numbers[100].repeat(hundreds)
         : hundreds * 100 < 500
-        ? numbers[0][400]
+        ? numbers[400]
         : hundreds * 100 < 900
-        ? numbers[0][500] + numbers[0][100].repeat(hundreds - 5)
+        ? numbers[500] + numbers[100].repeat(hundreds - 5)
         : hundreds * 100 < 1000
-        ? numbers[0][900]
+        ? numbers[900]
         : 0) +
       (units === 0 && tens === 0
         ? ""
         : tens * 10 + units < 10
-        ? numbers[0][units]
+        ? numbers[units]
         : tens * 10 + units < 40
-        ? numbers[0][10].repeat(tens / 1) +
-          (units == 0 ? "" : numbers[0][units])
+        ? numbers[10].repeat(tens / 1) +
+          (units == 0 ? "" : numbers[units])
         : tens * 10 + units < 50
-        ? numbers[0][40] + (units == 0 ? "" : numbers[0][units])
+        ? numbers[40] + (units == 0 ? "" : numbers[units])
         : tens * 10 + units < 90
-        ? numbers[0][50] +
+        ? numbers[50] +
           (units === 0
-            ? numbers[0][10].repeat(tens - 5)
-            : numbers[0][10].repeat(tens - 5) + numbers[0][units])
+            ? numbers[10].repeat(tens - 5)
+            : numbers[10].repeat(tens - 5) + numbers[units])
         : tens * 10 + units < 100
-        ? numbers[0][90] + numbers[0][units]
+        ? numbers[90] + numbers[units]
         : 0)
     );
   }

@@ -1,108 +1,141 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+:root {
+  --light-grey: #c3c3d4;
+  --dark-blue: #0a0a23;
+  --fcc-blue: #1b1b32;
+  --light-yellow: #fecc4c;
+  --dark-yellow: #feac32;
+  --light-pink: #ffadad;
+  --dark-red: #850000;
+  --light-green: #acd157;
+  --primary-font: sans-serif;
+  --secondary-font: monospace;
 }
-body{
-    background: rgb(60, 60, 60);
-    color: white;
-    font-family: monospace;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-.main-container{
-    padding:5rem 0;
-    max-width: 1300px;
-    width: 90%;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
+body {
+  background: var(--fcc-blue);
+  color: white;
+  font-family: var(--primary-font);
 }
-h1{
-    font-size: 3rem;
-    margin-bottom: 2rem;
+.main-container {
+  padding: 5rem 0;
+  max-width: 1300px;
+  width: 90%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
 }
-#change-due{
-    background: black;
-    border: 3px solid gray;
-    padding: 0.5rem .5rem;
+h1 {
+  font-size: 3rem;
+  margin-bottom: 2rem;
 }
-.input-div{
-    display: flex;
-    flex-direction: column;
-    padding: 1rem;
-    background: gray;
-    margin: 1rem 0;
-    align-items: center;
-    border:3px solid black;
-    & label{
-        text-align: center;
-        margin-bottom: 0.3rem;
-    }
-    & input{
-        outline: none;
-        margin-bottom: 0.3rem;
-        padding: 0.2rem 0.7rem;
-        max-width: 70%;
-    }
-    & button{
-        width: fit-content;
-        color: white;
-        padding: 0.2rem 0.7rem;
-        background: rgb(43, 148, 241);
-        border: none;
-    }
-
+#change-due {
+  background: black;
+  border: 3px solid var(--dark-yellow);
+  padding: 0.5rem 0.5rem;
+  font-family: var(--secondary-font);
+  font-size: 1.1rem;
 }
-.top-display-screen-container{
-    border: 3px solid black;
+.input-div {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  background: var(--dark-blue);
+  margin: 1rem 0;
+  align-items: center;
+  border: 3px solid var(--dark-yellow);
+  & label {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  & input {
+    outline: none;
+    margin-bottom: 0.8rem;
+    padding: 0.2rem 0.7rem;
+    max-width: 70%;
+  }
+  & button {
     width: fit-content;
+    color: white;
+    padding: 0.2rem 0.7rem;
+    font-size: 1.1rem;
+    background: rgb(43, 148, 241);
+    border: none;
+  }
 }
-.top-display-screen-container >p{
-   color:rgb(72, 255, 0);
-   background-color: black;
-   padding:0.5rem 1rem;
-   width: max-content;
-   border: 0.3rem solid gray;
+.top-display-screen-container {
+  border: 3px solid black;
+  width: fit-content;
 }
-.block{
-    height: 1rem;
-    width: 2rem;
-    background-color: gray;
-    border-left:3px solid black;
-    border-right:3px solid black;
-    margin-left: 1rem;
+.top-display-screen-container > p {
+  color: rgb(72, 255, 0);
+  background-color: black;
+  padding: 0.5rem 1rem;
+  width: max-content;
+  border: 0.3rem solid var(--light-grey);
+  font-family: var(--secondary-font);
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+.block {
+  height: 1rem;
+  width: 2rem;
+  background-color: var(--light-grey);
+  border-left: 3px solid black;
+  border-right: 3px solid black;
+  margin-left: 1rem;
 }
 
-.top-register{
-    background: gray;
-    border: 3px solid black;
+.top-register {
+  background: var(--light-grey);
+  border: 3px solid black;
+  display: flex;
+  & .cash-drawer-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    height: fit-content;
+    padding: 1rem;
+    gap: 0.2rem;
+    & button {
+      width: 1.5rem;
+      height: 1.5rem;
+      background: var(--dark-blue);
+      outline: none;
+      border: none;
+      border: 1px solid;
+      border-radius: 0.2rem;
+    }
+  }
+  & .cash-drawer-display {
+    padding: 1rem;
+    background: white;
+    color: black;
     display: flex;
-    & .cash-drawer-buttons{
-        display: grid;
-        grid-template-columns: repeat(4,1fr);
-        height: fit-content;
-        padding: 1rem;
-        gap: 0.2rem;
-        & button{
-            width: 1.5rem;
-            height: 1.5rem;
-            background: rgb(43, 148, 241);
-            outline: none;
-            border: none;
-            border: 1px solid;
-            border-radius: 0.2rem;
-
-        }
-
-    
+    flex-direction: column;
+    gap: 0.5rem;
+    & > p {
+        text-align: center;
+      & strong {
+        text-decoration: underline;
+        font-size: 1.2rem;
+      }
     }
-    & .cash-drawer-display{
-        padding: 1rem;
-        background:white;
-        color: black;
+    & .cash-cid-container {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      & p span {
+        color: var(--dark-yellow);
+        font-weight: bold;
+      }
     }
-
+  }
 }
-

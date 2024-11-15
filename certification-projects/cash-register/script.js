@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   let price = 19.5;
-  let cid = [["PENNY", 0.5], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 0], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]];
+  let cid = [["PENNY", 0.5], ["NICKEL", 5.10], ["DIME", 0.20], ["QUARTER", 3.75], ["ONE", 30], ["FIVE", 5], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]];
 
   const cash = document.getElementById("cash");
   const changeDue = document.getElementById("change-due");
@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function renderCid() {
     cidContainer.innerHTML = cid
       .map((e) => {
-        return `<p>${e[0]}: ${e[1].toFixed(2)}</p>`;
+        return `<p><span>${e[0]}</span>: ${e[1].toFixed(2)}</p>`;
       })
       .join("");
   }
